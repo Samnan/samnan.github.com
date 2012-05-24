@@ -1,2 +1,21 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+ul.social {
+  list-style: none;
+  padding-top: 20px;
+}
+ul.social li {
+  background: none;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+#disqus_thread {
+	font: 13px/18px 'PT Sans';
+}
+
+#gplus {
+	float: right;
+	margin: -20px 0 0 0;
+}

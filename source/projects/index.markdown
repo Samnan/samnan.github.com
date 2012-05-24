@@ -17,6 +17,7 @@ footer: true
 </div>
 
 <script type="text/javascript" charset="utf-8">
+$(function() {
   $('#github-projects').html('');
   $.githubUser(['samnan', 'load_projects'], function(data) {
     var repos = data.user.repositories;
@@ -38,8 +39,9 @@ footer: true
 <div class='rule'><hr/></div>");
     });
   });
-  function load_projects() {
+});
+function load_projects() {
 	return false;
-  }
+}
 </script>
 
