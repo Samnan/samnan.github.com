@@ -2,6 +2,8 @@
 layout: post
 title: "The definitive guide to compiling PHP 5 on Windows"
 date: 2012-09-21 11:03
+description: "The definitive guide to compiling PHP 5 on Windows"
+keywords: "guide to php compilation on windows, compile php on windows"
 comments: true
 categories: 
 - howto
