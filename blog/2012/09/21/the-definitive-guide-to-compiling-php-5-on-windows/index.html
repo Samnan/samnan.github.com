@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The definitive guide to compiling PHP 5 on Windows - Samnan ur Rehman</title>
+  <meta name="author" content="Samnan ur Rehman">
+
+  
+  <meta name="description" content="The definitive guide to compiling PHP 5 on Windows">
+  <meta name="keywords" content="guide to php compilation on windows, compile php on windows">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="FtCFzgmCf9Ta4GkQ65YsvDFS9SzUYC8QvQhsGpB50FY" />
+  <!--link href="http://feeds.feedburner.com/samnan-akhoond" rel="alternate" title="RSS" type="application/rss+xml" /-->
+  
+  <link rel="canonical" href="http://Samnan.github.com/blog/2012/09/21/the-definitive-guide-to-compiling-php-5-on-windows/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+  <script src="/javascripts/modernizr-2.0.js" type="text/javascript" ></script>
+  <script src="/javascripts/ender.js" type="text/javascript" ></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.github_v2.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Samnan ur Rehman" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30506353-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Samnan ur Rehman</a></h1>
+  
+    <h2>Personal site & Blog</h2>
+  
+</hgroup>
+<a href="http://github.com/samnan"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/fork.png" alt="Fork me on GitHub"></a>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Samnan.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/tools">Tools</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The Definitive Guide to Compiling PHP 5 on Windows</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-21T11:03:00+05:00" pubdate data-updated="true">Sep 21<span>st</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Compiling PHP 5 on a Windows platform is a messy business. There are lot of pitfalls and annoying problems that make it difficult to compile PHP itself, or a PHP extension on Windows. After recently going through the pain, I decided to create a step by step guide so that it might be useful to other people out there.
+Using this guide, the latest version of PHP 5(currently 5.4.7) and related extensions can be compiled on Windows 32bit and 64bit platforms (Windows XP, Vista, 7).</p>
+
+<!--more-->
+
+
+<h2>Pre-requisite</h2>
+
+<p>This article assumes you have basic knowledge of using the Windows command line as we will be doing most of the work on the command line, which is the easier way to compile PHP on windows. Other than that most of the tools/applications mentioned in the article are easily downloadable and all are free, with links provided wherever necessary. You will also need some archiving tool that can extract zip, gz and 7z files.</p>
+
+<h2>Setting up the environment</h2>
+
+<p>Follow the steps exactly as they are described below:</p>
+
+<ul>
+<li><p>Install Microsoft Windows SDK 6.1</p></li>
+<li><p>Install Microsoft Visual Studio 2008 (Express/Ultimate/Super, all versions work, but VS2010 will not work)</p></li>
+<li><p>Create a folder somewhere on your disk with enough space available for the source, tools and output files (for this article we will use C:\php, you should replace it with the path where you create your own folder)</p></li>
+<li><p>Download latest version of PHP binary tools from <a href="php.net">http://windows.php.net/downloads/php-sdk/</a>, extract into C:\php\ directly, so that the c:\php folder contains the bin, script and share folders from binary tools.</p></li>
+<li><p>Download latest PHP 5 32bit source code from <a href="php.net">http://windows.php.net/download/</a>. You will most probably want the thread safe version, but you can also try non-thread safe if that is your requirement.</p></li>
+<li><p>Create the folder structure inside C:\php so that it look like below (if required):</p>
+
+<pre><code>  C:\php
+  |__ bin
+  |__ script
+  |__ share
+  |__ php54dev
+      |___vc9
+          |___x86
+</code></pre></li>
+<li><p>Now extract the PHP source code in the x86 folder, so that the complete path of the source code looks like this:</p>
+
+<pre><code>  C:\php\php54dev\vc9\x86\php-5.4.7-src
+</code></pre></li>
+<li><p>Download the dependency headers and libraries package from <a href="php.net">http://windows.php.net/downloads/php-sdk/</a>, usually called &#8220;deps-5.4-vc9-x86.7z&#8221;. Extract it inside the folder C:\php\php54dev\vc9\x86\deps folder, so that the &#8216;deps&#8217; folder contains bin, include and other folders from the package.</p></li>
+</ul>
+
+
+<p>That&#8217;s all we need to start configuring and compiling php and related extensions.</p>
+
+<h2>Configuring and Compiling PHP</h2>
+
+<p>From start menu, within the Windows SDK 6.1 folder, start the &#8220;CMD Shell&#8221;. It is basically a command prompt with the paths setup properly for using the compiler and related tools. One by one, enter the following commands:
+[Note: replace <code>C:\php</code> with the path of your folder in the commands below]</p>
+
+<pre><code>    setenv /xp /x86 /release         # command prompt colors would change as you run this to confirm it worked
+    set PATH=C:\php\bin;%PATH%       
+    cd c:\php\php54dev\vc9\x86\php-5.4.7-src
+
+    buildconf
+</code></pre>
+
+<p>After the last command you will see a message &#8216;Now run configure &#8211;help&#8217;. At this stage you can run the command <code>configure --help</code> to see all available option for PHP compilation. I will describe some of those below which arre most commonly used (each command is preceded by comments on what it does).</p>
+
+<pre><code># compile everything, including all extensions statically into PHP
+configure
+
+# compile only PHP, without any extensions
+configure --disable-all
+
+# compile php statically with only the 'curl' extension 
+configure --disable-all --with-curl
+
+# compile php with only the 'curl' extension as a separate dll
+configure --disable-all --with-curl=shared
+# another example of the above command
+configure --disable-all --with-curl=shared --with-bz2=shared --with-mysql=shared
+
+# compile php with command line
+configure --disable-all --enable-cli
+
+# compile everything, but leave the curl extension
+configure --without-curl
+</code></pre>
+
+<p>After you have run the desired configuration command, all you have to do to finally compile PHP is to run the command:</p>
+
+<pre><code>nmake
+</code></pre>
+
+<p>Wait for a few minutes and if the compilation is successful, you should have the php libraries, dll&#8217;s and cli command line (if configured) in the <code>Release_TS</code> folder.</p>
+
+<h3>Compiling individual extensions</h3>
+
+<p>Let&#8217;s assume you want to only recompile the <code>curl</code> extension after you have applied some patch to it in the source code tree. You do not need to rebuild all of build, just run the following command to re-build the <code>php_curl.dll</code> extension again:</p>
+
+<pre><code>nmake php_curl.dll
+</code></pre>
+
+<p>If however, you want to compile it to PHP statically, then you will have to run <code>nmake</code> since all of the PHP needs to be linked again, though it will take much less time than first compilation since only the changed files are compiled and linked again.</p>
+
+<h3>Creating / compiling your extension</h3>
+
+<p>Creating a PHP extension from scratch requires another tutorial, and there are plenty of resources available online that show you how to do that, but just in case you want your extension to be part of the build whenever you run <code>nmake</code>, then you need to follow just one extra step.</p>
+
+<p>Create a folder called &#8216;pecl&#8217; at the following location:</p>
+
+<p><code>c:\php\php54dev\vc9\x86\</code></p>
+
+<p>Asusming your extension is called <code>myext</code>, then copy the <code>myext</code> folder inside the pecl folder, so that the folder structure looks like this:</p>
+
+<p><code>c:\php\php54dev\vc9\x86\pecl\myext</code></p>
+
+<p>Now you have to reconfigure PHP so that it finds your new extension:</p>
+
+<pre><code>buildconf
+configure --enable-myext
+# alternatively, to build the extension as a dll, use the command below
+configure --enable-myext=shared
+
+nmake php_myext.dll
+</code></pre>
+
+<p>That&#8217;s it! That is everything you need to know to configure and compile PHP on your Windows platform.</p>
+
+<h4>Compiling 64bit version of PHP</h4>
+
+<p>While the compilation process of 64bit PHP source code is very similar to above, there are only few small things that changed, for example, <code>x86</code> in the above article should be replaced with <code>x64</code>, ans similarly, the folder structure should contain <code>x64</code> instead of <code>x86</code>. Other than that, everything should work fine if you have installed the 64bit versions of the compiler on your machine.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Samnan ur Rehman</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-21T11:03:00+05:00" pubdate data-updated="true">Sep 21<span>st</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/guides/'>guides</a>, <a class='category' href='/blog/categories/howto/'>howto</a>, <a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/windows/'>windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Samnan.github.com/blog/2012/09/21/the-definitive-guide-to-compiling-php-5-on-windows/" data-via="" data-counturl="http://Samnan.github.com/blog/2012/09/21/the-definitive-guide-to-compiling-php-5-on-windows/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/16/top-5-things-i-like-about-windows-8-preview/" title="Previous Post: Top 5 things I like about Windows 8 Preview">&laquo; Top 5 things I like about Windows 8 Preview</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/03/25/imploding-a-simple-php-array-are-you-upto-the-challenge/" title="Next Post: Imploding a simple PHP array. Are you upto the challenge?">Imploding a simple PHP array. Are you upto the challenge? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/03/25/imploding-a-simple-php-array-are-you-upto-the-challenge/">Imploding a simple PHP array. Are you upto the challenge?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/21/the-definitive-guide-to-compiling-php-5-on-windows/">The definitive guide to compiling PHP 5 on Windows</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/16/top-5-things-i-like-about-windows-8-preview/">Top 5 things I like about Windows 8 Preview</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/27/integrating-propel-orm-with-kohana-3/">Integrating Propel ORM with Kohana 3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/27/debugging-webpages-with-firefox-3d-view/">Debugging Webpages with Firefox 3D View</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categories/browsers'>browsers (1)</a></li><li><a href='/blog/categories/code'>code (1)</a></li><li><a href='/blog/categories/debugging'>debugging (1)</a></li><li><a href='/blog/categories/guides'>guides (1)</a></li><li><a href='/blog/categories/howto'>howto (1)</a></li><li><a href='/blog/categories/kohana'>kohana (1)</a></li><li><a href='/blog/categories/modules'>modules (1)</a></li><li><a href='/blog/categories/operating-systems'>Operating Systems (1)</a></li><li><a href='/blog/categories/orm'>orm (1)</a></li><li><a href='/blog/categories/php'>php (2)</a></li><li><a href='/blog/categories/problems'>problems (1)</a></li><li><a href='/blog/categories/web'>web (1)</a></li><li><a href='/blog/categories/windows'>windows (1)</a></li></ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/browsers' style='font-size: 130.0%'>browsers(1)</a> <a href='/blog/categories/code' style='font-size: 130.0%'>code(1)</a> <a href='/blog/categories/debugging' style='font-size: 130.0%'>debugging(1)</a> <a href='/blog/categories/guides' style='font-size: 130.0%'>guides(1)</a> <a href='/blog/categories/howto' style='font-size: 130.0%'>howto(1)</a> <a href='/blog/categories/kohana' style='font-size: 130.0%'>kohana(1)</a> <a href='/blog/categories/modules' style='font-size: 130.0%'>modules(1)</a> <a href='/blog/categories/operating-systems' style='font-size: 130.0%'>Operating Systems(1)</a> <a href='/blog/categories/orm' style='font-size: 130.0%'>orm(1)</a> <a href='/blog/categories/php' style='font-size: 160.0%'>php(2)</a> <a href='/blog/categories/problems' style='font-size: 130.0%'>problems(1)</a> <a href='/blog/categories/web' style='font-size: 130.0%'>web(1)</a> <a href='/blog/categories/windows' style='font-size: 130.0%'>windows(1)</a> </span>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30506353-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+<p>
+  Copyright &copy; 2013 - Samnan ur Rehman -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'samnan-akhoond';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Samnan.github.com/blog/2012/09/21/the-definitive-guide-to-compiling-php-5-on-windows/';
+        var disqus_url = 'http://Samnan.github.com/blog/2012/09/21/the-definitive-guide-to-compiling-php-5-on-windows/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

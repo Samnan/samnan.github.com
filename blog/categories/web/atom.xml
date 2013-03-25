@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: web | Samnan ur Rehman]]></title>
+  <link href="http://Samnan.github.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://Samnan.github.com/"/>
+  <updated>2013-03-25T18:06:07+05:00</updated>
+  <id>http://Samnan.github.com/</id>
+  <author>
+    <name><![CDATA[Samnan ur Rehman]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Debugging Webpages with Firefox 3D View]]></title>
+    <link href="http://Samnan.github.com/blog/2012/04/27/debugging-webpages-with-firefox-3d-view/"/>
+    <updated>2012-04-27T19:10:00+05:00</updated>
+    <id>http://Samnan.github.com/blog/2012/04/27/debugging-webpages-with-firefox-3d-view</id>
+    <content type="html"><![CDATA[<p>The neweset version of Firefox browser has improved web developer tools, and one of the coolest tool is the 3D debugging view of the webpage. This functionality was previously available as as addon, but now has been integrated into the browser web developer tools. To activate the tool, Press Ctrl+Shift+I inside any webpage, and then click the '3D View' button at the bottom of the screen.</p>
+
+<!--more-->
+
+
+<p><img src="/content/2012/04/ff-3dview.png"></p>
+
+<p>The 3D view, while proving some nice eye candy, can also help find z-index issues and inspect hard to find elements hidden behind other elements on a webpage.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: code | Samnan ur Rehman]]></title>
+  <link href="http://Samnan.github.com/blog/categories/code/atom.xml" rel="self"/>
+  <link href="http://Samnan.github.com/"/>
+  <updated>2013-03-25T18:06:07+05:00</updated>
+  <id>http://Samnan.github.com/</id>
+  <author>
+    <name><![CDATA[Samnan ur Rehman]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Imploding a simple PHP array. Are you upto the challenge?]]></title>
+    <link href="http://Samnan.github.com/blog/2013/03/25/imploding-a-simple-php-array-are-you-upto-the-challenge/"/>
+    <updated>2013-03-25T17:00:00+05:00</updated>
+    <id>http://Samnan.github.com/blog/2013/03/25/imploding-a-simple-php-array-are-you-upto-the-challenge</id>
+    <content type="html"><![CDATA[<p>I have been developing applications with PHP for more than 10 years, and every now and then something comes up that looks to be fairly trivial task as first, yet it takes up a considerable amount of time to actually get done because of some of the PHP quirks (or features as you may call it). Here is one of my recent encounter with a piece of code, that I would like you to try out and see how fast you can achieve the desired results.</p>
+
+<!--more-->
+
+
+<h2>The Problem</h2>
+
+<p>You have an array of few data values, and your task is to generate a string that represents the concatenated values of the array as output. Simple isn't it, let's check the code and find out.</p>
+
+<h2>The Code</h2>
+
+<pre><code>    &lt;?php
+        $data = array(
+            'name' =&gt; "James",
+            'id' =&gt; 746820,
+            'amount' =&gt; 10.00,
+            'status' =&gt; 'valid'
+        );
+
+    // write code here that will output the array values concatenated into a single string
+    // $output = .....
+    // echo $output;
+
+    // the resulting output on screen should be as below (without starting comments of course)
+    // James74682010.00valid
+
+    ?&gt;
+</code></pre>
+
+<p>Notes:</p>
+
+<ul>
+<li>The array keys are known (there maybe more, but the idea is to keep the code simple here)</li>
+<li>The array data types are known, but the values are not, e.g. the key 'amount' may contain either of the following values:
+  2.5, 10.00, 100.50, 1.250, 1.245 etc</li>
+<li>Your solution should use the $data array to generate the output in some way. You are allowed to modify the $data array as you like.</li>
+</ul>
+
+
+<h2>The Result</h2>
+
+<p>Here is a quick piece of code to get you started:</p>
+
+<pre><code>    $output = implode('', $data);
+    echo $output;
+</code></pre>
+
+<p>However, you will (not) be disappointed to see that the output is not exactly what is desired. I will leave you to figure out why PHP is doing it, and you can try finding a solution to see how good you are at PHP, depending on the amount of time you take to solve this. I will keep my solution style "display:none" to feed your curiosity :)</p>
+
+<p>Feel free to post your solution as comments.</p>
+]]></content>
+  </entry>
+  
+</feed>
