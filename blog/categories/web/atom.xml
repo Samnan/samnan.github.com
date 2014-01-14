@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web | Samnan ur Rehman]]></title>
   <link href="http://Samnan.github.com/blog/categories/web/atom.xml" rel="self"/>
   <link href="http://Samnan.github.com/"/>
-  <updated>2013-03-25T18:06:07+05:00</updated>
+  <updated>2014-01-14T16:33:47+05:00</updated>
   <id>http://Samnan.github.com/</id>
   <author>
     <name><![CDATA[Samnan ur Rehman]]></name>
@@ -18,7 +18,7 @@
     <link href="http://Samnan.github.com/blog/2012/04/27/debugging-webpages-with-firefox-3d-view/"/>
     <updated>2012-04-27T19:10:00+05:00</updated>
     <id>http://Samnan.github.com/blog/2012/04/27/debugging-webpages-with-firefox-3d-view</id>
-    <content type="html"><![CDATA[<p>The neweset version of Firefox browser has improved web developer tools, and one of the coolest tool is the 3D debugging view of the webpage. This functionality was previously available as as addon, but now has been integrated into the browser web developer tools. To activate the tool, Press Ctrl+Shift+I inside any webpage, and then click the '3D View' button at the bottom of the screen.</p>
+    <content type="html"><![CDATA[<p>The neweset version of Firefox browser has improved web developer tools, and one of the coolest tool is the 3D debugging view of the webpage. This functionality was previously available as as addon, but now has been integrated into the browser web developer tools. To activate the tool, Press Ctrl+Shift+I inside any webpage, and then click the &lsquo;3D View&rsquo; button at the bottom of the screen.</p>
 
 <!--more-->
 

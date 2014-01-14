@@ -4,7 +4,7 @@
   <title><![CDATA[Category: windows | Samnan ur Rehman]]></title>
   <link href="http://Samnan.github.com/blog/categories/windows/atom.xml" rel="self"/>
   <link href="http://Samnan.github.com/"/>
-  <updated>2013-03-25T18:06:07+05:00</updated>
+  <updated>2014-01-14T16:33:47+05:00</updated>
   <id>http://Samnan.github.com/</id>
   <author>
     <name><![CDATA[Samnan ur Rehman]]></name>
@@ -52,15 +52,15 @@ Using this guide, the latest version of PHP 5(currently 5.4.7) and related exten
 
 <pre><code>  C:\php\php54dev\vc9\x86\php-5.4.7-src
 </code></pre></li>
-<li><p>Download the dependency headers and libraries package from <a href="php.net">http://windows.php.net/downloads/php-sdk/</a>, usually called "deps-5.4-vc9-x86.7z". Extract it inside the folder C:\php\php54dev\vc9\x86\deps folder, so that the 'deps' folder contains bin, include and other folders from the package.</p></li>
+<li><p>Download the dependency headers and libraries package from <a href="php.net">http://windows.php.net/downloads/php-sdk/</a>, usually called &ldquo;deps-5.4-vc9-x86.7z&rdquo;. Extract it inside the folder C:\php\php54dev\vc9\x86\deps folder, so that the &lsquo;deps&rsquo; folder contains bin, include and other folders from the package.</p></li>
 </ul>
 
 
-<p>That's all we need to start configuring and compiling php and related extensions.</p>
+<p>That&rsquo;s all we need to start configuring and compiling php and related extensions.</p>
 
 <h2>Configuring and Compiling PHP</h2>
 
-<p>From start menu, within the Windows SDK 6.1 folder, start the "CMD Shell". It is basically a command prompt with the paths setup properly for using the compiler and related tools. One by one, enter the following commands:
+<p>From start menu, within the Windows SDK 6.1 folder, start the &ldquo;CMD Shell&rdquo;. It is basically a command prompt with the paths setup properly for using the compiler and related tools. One by one, enter the following commands:
 [Note: replace <code>C:\php</code> with the path of your folder in the commands below]</p>
 
 <pre><code>    setenv /xp /x86 /release         # command prompt colors would change as you run this to confirm it worked
@@ -70,7 +70,7 @@ Using this guide, the latest version of PHP 5(currently 5.4.7) and related exten
     buildconf
 </code></pre>
 
-<p>After the last command you will see a message 'Now run configure --help'. At this stage you can run the command <code>configure --help</code> to see all available option for PHP compilation. I will describe some of those below which arre most commonly used (each command is preceded by comments on what it does).</p>
+<p>After the last command you will see a message &lsquo;Now run configure &mdash;help&rsquo;. At this stage you can run the command <code>configure --help</code> to see all available option for PHP compilation. I will describe some of those below which arre most commonly used (each command is preceded by comments on what it does).</p>
 
 <pre><code># compile everything, including all extensions statically into PHP
 configure
@@ -98,11 +98,11 @@ configure --without-curl
 <pre><code>nmake
 </code></pre>
 
-<p>Wait for a few minutes and if the compilation is successful, you should have the php libraries, dll's and cli command line (if configured) in the <code>Release_TS</code> folder.</p>
+<p>Wait for a few minutes and if the compilation is successful, you should have the php libraries, dll&rsquo;s and cli command line (if configured) in the <code>Release_TS</code> folder.</p>
 
 <h3>Compiling individual extensions</h3>
 
-<p>Let's assume you want to only recompile the <code>curl</code> extension after you have applied some patch to it in the source code tree. You do not need to rebuild all of build, just run the following command to re-build the <code>php_curl.dll</code> extension again:</p>
+<p>Let&rsquo;s assume you want to only recompile the <code>curl</code> extension after you have applied some patch to it in the source code tree. You do not need to rebuild all of build, just run the following command to re-build the <code>php_curl.dll</code> extension again:</p>
 
 <pre><code>nmake php_curl.dll
 </code></pre>
@@ -113,7 +113,7 @@ configure --without-curl
 
 <p>Creating a PHP extension from scratch requires another tutorial, and there are plenty of resources available online that show you how to do that, but just in case you want your extension to be part of the build whenever you run <code>nmake</code>, then you need to follow just one extra step.</p>
 
-<p>Create a folder called 'pecl' at the following location:</p>
+<p>Create a folder called &lsquo;pecl&rsquo; at the following location:</p>
 
 <p><code>c:\php\php54dev\vc9\x86\</code></p>
 
@@ -131,7 +131,7 @@ configure --enable-myext=shared
 nmake php_myext.dll
 </code></pre>
 
-<p>That's it! That is everything you need to know to configure and compile PHP on your Windows platform.</p>
+<p>That&rsquo;s it! That is everything you need to know to configure and compile PHP on your Windows platform.</p>
 
 <h4>Compiling 64bit version of PHP</h4>
 

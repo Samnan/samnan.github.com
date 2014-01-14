@@ -9,7 +9,7 @@
   <meta name="author" content="Samnan ur Rehman">
 
   
-  <meta name="description" content="Propel is a fast ORM with multiple database support and can be integrated with the Kohana 3.x framework instead of it&#8217;s default ORM.
+  <meta name="description" content="Propel is a fast ORM with multiple database support and can be integrated with the Kohana 3.x framework instead of it&rsquo;s default ORM.
 Since &hellip;">
   
 
@@ -112,8 +112,8 @@ Since &hellip;">
   </header>
 
 
-<div class="entry-content"><p><a href="http://www.propelorm.org/">Propel</a> is a fast ORM with multiple database support and can be integrated with the Kohana 3.x framework instead of it&#8217;s default ORM.
-Since Propel generates it&#8217;s models using command line, some work is involved in integrating it with Kohana 3. Therefore, I created a simple module for Kohana 3 with all the required scripts and stuff.</p>
+<div class="entry-content"><p><a href="http://www.propelorm.org/">Propel</a> is a fast ORM with multiple database support and can be integrated with the Kohana 3.x framework instead of it&rsquo;s default ORM.
+Since Propel generates it&rsquo;s models using command line, some work is involved in integrating it with Kohana 3. Therefore, I created a simple module for Kohana 3 with all the required scripts and stuff.</p>
 
 <!--more-->
 
@@ -125,7 +125,7 @@ Since Propel generates it&#8217;s models using command line, some work is involv
 
 <h2>Pre-requisite</h2>
 
-<p>While the module neatly integrates into Kohana, you will still require to download Propel sepearately and put it inside the module&#8217;s vendor folder.</p>
+<p>While the module neatly integrates into Kohana, you will still require to download Propel sepearately and put it inside the module&rsquo;s vendor folder.</p>
 
 <p>Apart from that, you will also need to have a working installation of <a href="http://www.phing.info/trac/">Phing</a>. The best way to do that is install it using PEAR, and then set the paths correctly in the script provided with the module.</p>
 
@@ -135,13 +135,13 @@ Since Propel generates it&#8217;s models using command line, some work is involv
 
 <h2>Using the module</h2>
 
-<p>Before you enalbe the module in your application&#8217;s bootstrap, you will need to generate your database models, otherwise you will get exceptions as the required Propel configuration files will not be available until the schema is generated. From there on, you can simply regenerate your models when required without changing any other configuration.</p>
+<p>Before you enalbe the module in your application&rsquo;s bootstrap, you will need to generate your database models, otherwise you will get exceptions as the required Propel configuration files will not be available until the schema is generated. From there on, you can simply regenerate your models when required without changing any other configuration.</p>
 
 <h2>Troubleshooting</h2>
 
 <p>If you enable the propel module for the first time, and you have not yet run the propel model and conf generator commands, Kohana will throw an exception. Make sure you run the convert-conf command at least once before you enable the module in your application.</p>
 
-<p>If you encounter errors while running some of the commands above, then you are most likely missing the &#8216;Phing&#8217; command on your system, or you have setup your paths incorrectly in the &#8216;propel.bat&#8217; file.</p>
+<p>If you encounter errors while running some of the commands above, then you are most likely missing the &lsquo;Phing&rsquo; command on your system, or you have setup your paths incorrectly in the &lsquo;propel.bat&rsquo; file.</p>
 </div>
 
 
@@ -266,7 +266,7 @@ Since Propel generates it&#8217;s models using command line, some work is involv
 
 
 <p>
-  Copyright &copy; 2013 - Samnan ur Rehman -
+  Copyright &copy; 2014 - Samnan ur Rehman -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -295,7 +295,7 @@ Since Propel generates it&#8217;s models using command line, some work is involv
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -317,7 +317,7 @@ Since Propel generates it&#8217;s models using command line, some work is involv
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
